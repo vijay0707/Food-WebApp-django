@@ -1,0 +1,28 @@
+{% extends 'food/base.html' %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-danger text-white text-center">
+                    <div class="card-title">
+                        <h3>Confirm Delete</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form  method="post">
+                        {% csrf_token %}
+                        <h2>Are you sure you want to delete {{ item.item_name }}</h2>
+                        <a class="btn btn-secondary" href="{% url 'food:detail' item.id %}">Cancel</a>
+                        <button type="submit" class="btn btn-danger">Confirm</button>
+                    </form> 
+                </div> 
+            </div>          
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
